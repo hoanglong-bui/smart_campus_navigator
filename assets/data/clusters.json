@@ -1,4 +1,29 @@
 [
-  { "id": "north_campus", "name_en": "North Campus", "lat": 28.68, "lng": 77.20 },
-  { "id": "south_campus", "name_en": "South Campus", "lat": 28.58, "lng": 77.16 }
+  {
+    "cluster_id": "north_campus",
+    "name_en": "North Campus",
+    "name_hi": "उत्तरी परिसर",
+    "name_vi": "Cơ sở phía Bắc",
+    "center_lat": 28.68,
+    "center_lng": 77.20,
+    "radius_km": 3.0
+  },
+  {
+    "cluster_id": "south_campus",
+    "name_en": "South Campus",
+    "name_hi": "दक्षिणी परिसर",
+    "name_vi": "Cơ sở phía Nam",
+    "center_lat": 28.58,
+    "center_lng": 77.16,
+    "radius_km": 3.0
+  },
+  {
+    "cluster_id": "off_campus",
+    "name_en": "Off Campus",
+    "name_hi": "परिसर से बाहर",
+    "name_vi": "Ngoài khuôn viên",
+    "center_lat": 28.60,
+    "center_lng": 77.20,
+    "radius_km": 15.0
+  }
 ]
