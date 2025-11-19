@@ -1,0 +1,42 @@
+
+[
+  {
+    "service_id": 101,
+    "cluster_id": "north_campus",
+    "category": "On-Campus",
+    "sub_category": "Library",
+    "latitude": 28.690,
+    "longitude": 77.210,
+    "phone": "011-2766xxxx",
+    "email": "library@du.ac.in",
+    "website": "http://csl.du.ac.in",
+    "hours_json": { 
+      "Mon-Fri": "09:00-17:00", 
+      "Sat": "09:00-13:00", 
+      "Sun": "Closed" 
+    },
+    "translations": [
+      {
+        "language_code": "en",
+        "name": "Central Science Library",
+        "address": "University Enclave, North Campus",
+        "description": "The main library for science students.",
+        "hours_text": "9 AM - 5 PM"
+      },
+      {
+        "language_code": "hi",
+        "name": "केंद्रीय विज्ञान पुस्तकालय",
+        "address": "यूनिवर्सिटी एन्क्लेव, नॉर्थ कैंपस",
+        "description": "विज्ञान के छात्रों के लिए मुख्य पुस्तकालय।",
+        "hours_text": "सुबह 9 बजे - शाम 5 बजे"
+      },
+      {
+        "language_code": "vi",
+        "name": "Thư viện Khoa học Trung tâm",
+        "address": "Khu Đại học, Cơ sở phía Bắc",
+        "description": "Thư viện chính cho sinh viên khối tự nhiên.",
+        "hours_text": "9h sáng - 5h chiều"
+      }
+    ]
+  }
+]

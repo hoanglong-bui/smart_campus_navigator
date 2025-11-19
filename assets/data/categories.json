@@ -1,0 +1,5 @@
+
+[
+  { "cat": "On-Campus", "sub": "Library", "icon": "library_books" },
+  { "cat": "Off-Campus", "sub": "Bank", "icon": "attach_money" }
+]
