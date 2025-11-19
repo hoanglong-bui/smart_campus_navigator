@@ -1,5 +1,7 @@
 
 [
-  { "cat": "On-Campus", "sub": "Library", "icon": "library_books" },
-  { "cat": "Off-Campus", "sub": "Bank", "icon": "attach_money" }
+  { "category": "On-Campus", "sub_category": "Library", "icon_name": "library_books" },
+  { "category": "On-Campus", "sub_category": "Hostel", "icon_name": "hotel" },
+  { "category": "Off-Campus", "sub_category": "Bank", "icon_name": "account_balance" },
+  { "category": "Off-Campus", "sub_category": "FRRO", "icon_name": "badge" }
 ]
