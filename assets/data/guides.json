@@ -1,0 +1,34 @@
+[
+  {
+    "guide_id": "intl_new_student",
+    "title_en": "International Student Onboarding",
+    "title_vi": "Quy trình Nhập học SV Quốc tế",
+    "target_user": "International",
+    "steps": [
+      {
+        "step_order": 1,
+        "title_en": "ICCR Scholarship Confirmation",
+        "desc_en": "Submit your arrival report to ICCR.",
+  "linked_service_id": 205
+      },
+      {
+        "step_order": 2,
+        "title_en": "FSR Registration",
+        "desc_en": "Get your admission letter from FSR office.",
+        "linked_service_id": 105  
+      },
+      {
+        "step_order": 3,
+        "title_en": "Open Bank Account",
+        "desc_en": "Required for scholarship & payments.",
+        "linked_service_id": 301  
+      },
+      {
+        "step_order": 4,
+        "title_en": "FRRO Registration",
+        "desc_en": "Apply for Residence Permit (RC/RP) within 14 days.",
+        "linked_service_id": 402  
+      }
+    ]
+  }
+]

@@ -41,7 +41,7 @@ flutter:
   assets:
     - assets/db/          # Để đọc file SQL
     - assets/data/        # Để đọc file JSON
-    - assets/map_tiles/   # Để đọc bản đồ offline sau này
+    # - assets/map_tiles/   # Để đọc bản đồ offline sau này
   # --------------------
 
 

@@ -86,3 +86,31 @@ CREATE TRIGGER trg_service_translations_delete AFTER DELETE ON service_translati
 BEGIN
     DELETE FROM service_translations_fts WHERE rowid = old.translation_id;
 END;
+
+
+-- 9. Bảng Danh sách Quy trình (Guides)
+CREATE TABLE guides (
+    guide_id TEXT PRIMARY KEY NOT NULL, -- Ví dụ: 'intl_onboarding'
+    title_en TEXT NOT NULL,
+    title_hi TEXT,
+    title_vi TEXT,
+    target_user TEXT, -- 'International', 'Local', 'All'
+    icon_name TEXT
+);
+
+-- 10. Bảng Các bước thực hiện (Guide Steps)
+CREATE TABLE guide_steps (
+    step_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    guide_id TEXT NOT NULL,
+    step_order INTEGER NOT NULL, -- Thứ tự bước: 1, 2, 3...
+    title_en TEXT NOT NULL,
+    title_hi TEXT,
+    title_vi TEXT,
+    description_en TEXT,
+    description_hi TEXT,
+    description_vi TEXT,
+    linked_service_id INTEGER, -- QUAN TRỌNG: Liên kết tới bảng Services
+    
+    FOREIGN KEY (guide_id) REFERENCES guides (guide_id) ON DELETE CASCADE,
+    FOREIGN KEY (linked_service_id) REFERENCES services (service_id)
+);
