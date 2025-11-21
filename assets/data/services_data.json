@@ -25,7 +25,7 @@
       {
         "language_code": "hi",
         "name": "केंद्रीय विज्ञान पुस्तकालय",
-        "address": "यूनिवर्सिटी एन्क्लेव, नॉर्थ कैंपस",
+        "address": "यूनिवर्सिटी एन्क्लेव, उत्तरी परिसर",
         "description": "विज्ञान के छात्रों के लिए मुख्य पुस्तकालय।",
         "hours_text": "सुबह 9 बजे - शाम 5 बजे"
       },
@@ -35,44 +35,6 @@
         "address": "Khu Đại học, Cơ sở phía Bắc",
         "description": "Thư viện chính cho sinh viên khối tự nhiên.",
         "hours_text": "9h sáng - 5h chiều"
-      }
-    ]
-  },
-  {
-    "service_id": 205,
-    "cluster_id": "off_campus",
-    "category": "Off-Campus",
-    "sub_category": "ICCR",
-    "latitude": 28.570,
-    "longitude": 77.230,
-    "phone": "011-2337xxxx",
-    "email": "iccr@gov.in",
-    "website": "http://iccr.gov.in",
-    "hours_json": {
-      "Mon-Fri": "09:30-17:30",
-      "Sat-Sun": "Closed"
-    },
-    "translations": [
-      {
-        "language_code": "en",
-        "name": "ICCR Office",
-        "address": "Azad Bhavan, IP Estate",
-        "description": "Indian Council for Cultural Relations.",
-        "hours_text": "9:30 AM - 5:30 PM"
-      },
-      {
-        "language_code": "hi",
-        "name": "आईसीसीआर कार्यालय",
-        "address": "आज़ाद भवन, आईपी एस्टेट",
-        "description": "भारतीय सांस्कृतिक संबंध परिषद।",
-        "hours_text": "सुबह 9:30 बजे - शाम 5:30 बजे"
-      },
-      {
-        "language_code": "vi",
-        "name": "Văn phòng ICCR",
-        "address": "Azad Bhavan, IP Estate",
-        "description": "Hội đồng Quan hệ Văn hóa Ấn Độ.",
-        "hours_text": "9h30 sáng - 5h30 chiều"
       }
     ]
   },
@@ -95,6 +57,13 @@
         "address": "Conference Centre, North Campus",
         "description": "Office for international admissions.",
         "hours_text": "9:30 AM - 1:00 PM"
+      },
+      {
+        "language_code": "hi",
+        "name": "विदेशी छात्र पंजीकरण (FSR)",
+        "address": "सम्मेलन केंद्र, उत्तरी परिसर",
+        "description": "अंतर्राष्ट्रीय प्रवेश के लिए कार्यालय।",
+        "hours_text": "सुबह 9:30 - दोपहर 1:00"
       },
       {
         "language_code": "vi",
@@ -127,6 +96,13 @@
         "hours_text": "10:00 AM - 4:00 PM"
       },
       {
+        "language_code": "hi",
+        "name": "भारतीय स्टेट बैंक (SBI)",
+        "address": "सुधीर बोस मार्ग, उत्तरी परिसर",
+        "description": "भारतीय स्टेट बैंक की शाखा।",
+        "hours_text": "सुबह 10:00 - शाम 4:00"
+      },
+      {
         "language_code": "vi",
         "name": "Ngân hàng SBI",
         "address": "Sudhir Bose Marg, Cơ sở phía Bắc",
@@ -156,10 +132,55 @@
         "hours_text": "9:30 AM - 5:30 PM"
       },
       {
+        "language_code": "hi",
+        "name": "FRRO कार्यालय दिल्ली",
+        "address": "ईस्ट ब्लॉक-VIII, आर.के. पुरम",
+        "description": "विदेशियों के लिए पंजीकरण कार्यालय।",
+        "hours_text": "सुबह 9:30 - शाम 5:30"
+      },
+      {
         "language_code": "vi",
         "name": "Văn phòng FRRO Delhi",
         "address": "East Block-VIII, R.K. Puram",
         "description": "Văn phòng đăng ký cư trú cho người nước ngoài.",
+        "hours_text": "9h30 sáng - 5h30 chiều"
+      }
+    ]
+  },
+  {
+    "service_id": 205,
+    "cluster_id": "off_campus",
+    "category": "Off-Campus",
+    "sub_category": "ICCR",
+    "latitude": 28.570,
+    "longitude": 77.230,
+    "phone": "011-2337xxxx",
+    "email": "iccr@gov.in",
+    "website": "http://iccr.gov.in",
+    "hours_json": {
+      "Mon-Fri": "09:30-17:30",
+      "Sat-Sun": "Closed"
+    },
+    "translations": [
+      {
+        "language_code": "en",
+        "name": "ICCR Office",
+        "address": "Azad Bhavan, IP Estate",
+        "description": "Indian Council for Cultural Relations.",
+        "hours_text": "9:30 AM - 5:30 PM"
+      },
+      {
+        "language_code": "hi",
+        "name": "आईसीसीआर (ICCR) कार्यालय",
+        "address": "आज़ाद भवन, आईपी एस्टेट",
+        "description": "भारतीय सांस्कृतिक संबंध परिषद।",
+        "hours_text": "सुबह 9:30 - शाम 5:30"
+      },
+      {
+        "language_code": "vi",
+        "name": "Văn phòng ICCR",
+        "address": "Azad Bhavan, IP Estate",
+        "description": "Hội đồng Quan hệ Văn hóa Ấn Độ.",
         "hours_text": "9h30 sáng - 5h30 chiều"
       }
     ]

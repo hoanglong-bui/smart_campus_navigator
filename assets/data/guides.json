@@ -2,8 +2,10 @@
   {
     "guide_id": "intl_scholarship",
     "title_en": "ICCR Scholarship Students",
+    "title_hi": "आईसीसीआर छात्रवृत्ति छात्र",
     "title_vi": "Sinh viên Học bổng ICCR",
     "description_en": "Process for students with ICCR scholarships.",
+    "description_hi": "आईसीसीआर छात्रवृत्ति वाले छात्रों के लिए प्रक्रिया।",
     "description_vi": "Quy trình dành cho sinh viên có học bổng chính phủ.",
     "target_user": "International",
     "icon_name": "school",
@@ -11,27 +13,41 @@
       {
         "step_order": 1,
         "title_en": "Report to ICCR",
+        "title_hi": "ICCR को रिपोर्ट करें",
         "title_vi": "Báo cáo với ICCR",
         "description_en": "Submit arrival report documents.",
+        "description_hi": "आगमन रिपोर्ट दस्तावेज जमा करें।",
         "description_vi": "Nộp báo cáo khi đến nơi.",
-        "linked_service_id": 205 
+        "linked_service_id": 205
       },
       {
         "step_order": 2,
         "title_en": "Register at FSR",
+        "title_hi": "FSR में पंजीकरण करें",
         "title_vi": "Đăng ký tại FSR",
+        "description_en": "Collect admission letter.",
+        "description_hi": "प्रवेश पत्र प्राप्त करें।",
+        "description_vi": "Nhận giấy báo nhập học.",
         "linked_service_id": 105
       },
       {
         "step_order": 3,
         "title_en": "Open Bank Account",
+        "title_hi": "बैंक खाता खोलें",
         "title_vi": "Mở tài khoản ngân hàng",
+        "description_en": "Required for payments.",
+        "description_hi": "भुगतान के लिए आवश्यक।",
+        "description_vi": "Bắt buộc để thanh toán.",
         "linked_service_id": 301
       },
       {
         "step_order": 4,
         "title_en": "FRRO Registration",
+        "title_hi": "FRRO पंजीकरण",
         "title_vi": "Đăng ký cư trú (FRRO)",
+        "description_en": "Apply for Residence Permit.",
+        "description_hi": "निवास परमिट के लिए आवेदन करें।",
+        "description_vi": "Đăng ký giấy phép cư trú.",
         "linked_service_id": 402
       }
     ]
@@ -39,8 +55,10 @@
   {
     "guide_id": "intl_self_financed",
     "title_en": "Self-Financed Students",
+    "title_hi": "स्व-वित्तपोषित छात्र",
     "title_vi": "Sinh viên Tự túc",
     "description_en": "Process for non-scholarship international students.",
+    "description_hi": "बिना छात्रवृत्ति वाले छात्रों के लिए प्रक्रिया।",
     "description_vi": "Quy trình dành cho sinh viên diện tự túc kinh phí.",
     "target_user": "International",
     "icon_name": "person",
@@ -48,21 +66,31 @@
       {
         "step_order": 1,
         "title_en": "Register at FSR",
+        "title_hi": "FSR में पंजीकरण करें",
         "title_vi": "Đăng ký tại FSR",
         "description_en": "This is your first mandatory step.",
+        "description_hi": "यह आपका पहला अनिवार्य कदम है।",
         "description_vi": "Đây là bước bắt buộc đầu tiên của bạn.",
         "linked_service_id": 105
       },
       {
         "step_order": 2,
         "title_en": "Open Bank Account",
+        "title_hi": "बैंक खाता खोलें",
         "title_vi": "Mở tài khoản ngân hàng",
+        "description_en": "Required for payments.",
+        "description_hi": "भुगतान के लिए आवश्यक।",
+        "description_vi": "Bắt buộc để thanh toán.",
         "linked_service_id": 301
       },
       {
         "step_order": 3,
         "title_en": "FRRO Registration",
+        "title_hi": "FRRO पंजीकरण",
         "title_vi": "Đăng ký cư trú (FRRO)",
+        "description_en": "Apply for Residence Permit.",
+        "description_hi": "निवास परमिट के लिए आवेदन करें।",
+        "description_vi": "Đăng ký giấy phép cư trú.",
         "linked_service_id": 402
       }
     ]
