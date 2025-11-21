@@ -74,6 +74,52 @@ class ServiceModel {
       'verified': verified ? 1 : 0,
     };
   }
+
+  // MỚI: Factory để đọc dữ liệu phẳng từ câu lệnh SQL SELECT JOIN
+  factory ServiceModel.fromSqlMap(Map<String, dynamic> map) {
+    return ServiceModel(
+      serviceId: map['service_id'],
+      clusterId: map['cluster_id'],
+      category: map['category'],
+      subCategory: map['sub_category'],
+      latitude: map['latitude'],
+      longitude: map['longitude'],
+      phone: map['phone'],
+      email: map['email'],
+      website: map['website'],
+      // Parse lại chuỗi JSON giờ làm việc
+      hoursJson:
+          map['hours_json'] != null ? _parseHours(map['hours_json']) : null,
+      active: map['active'] == 1,
+      verified: map['verified'] == 1,
+      // Tạo list translation chứa đúng 1 ngôn ngữ hiện tại
+      translations: [
+        ServiceTranslation(
+          languageCode: map['language_code'],
+          name: map['name'],
+          description: map['description'],
+          address: map['address'],
+          hoursText: map['hours_text'],
+        )
+      ],
+    );
+  }
+
+  // Helper nhỏ để parse chuỗi "{Mon: ...}" thành Map
+  static Map<String, String> _parseHours(String str) {
+    // Cắt bỏ dấu { và } rồi tách chuỗi đơn giản (Regex cơ bản)
+    // Lưu ý: Đây là parse đơn giản, nếu chuỗi phức tạp nên dùng jsonDecode
+    String content = str.replaceAll('{', '').replaceAll('}', '');
+    Map<String, String> result = {};
+    List<String> pairs = content.split(',');
+    for (var pair in pairs) {
+      List<String> kv = pair.split(':');
+      if (kv.length == 2) {
+        result[kv[0].trim()] = kv[1].trim();
+      }
+    }
+    return result;
+  }
 }
 
 class ServiceTranslation {
