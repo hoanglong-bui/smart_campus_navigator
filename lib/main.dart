@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_campus_navigator/presentation/screens/home_screen.dart';
 
 // Import các file cần thiết
 import 'core/database/database_helper.dart';
@@ -58,44 +59,9 @@ class MyApp extends StatelessWidget {
             useMaterial3: true,
           ),
           // Tạm thời để Placeholder, bước sau sẽ thay bằng HomeScreen thật
-          home: const HomeScreenPlaceholder(),
+          home: const HomeScreen(),
         );
       },
-    );
-  }
-}
-
-// Widget tạm để test chạy App không bị lỗi
-class HomeScreenPlaceholder extends StatelessWidget {
-  const HomeScreenPlaceholder({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    // Test thử gọi sự kiện LoadServices
-    // Lấy ngôn ngữ hiện tại từ Cubit
-    final currentLang = context.read<LanguageCubit>().state.languageCode;
-
-    // Ra lệnh cho Bloc tải dữ liệu
-    context
-        .read<ServiceListBloc>()
-        .add(LoadServices(languageCode: currentLang));
-
-    return Scaffold(
-      appBar: AppBar(title: const Text("Ready for UI")),
-      body: BlocBuilder<ServiceListBloc, ServiceListState>(
-        builder: (context, state) {
-          if (state is ServiceListLoading) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (state is ServiceListLoaded) {
-            return Center(
-              child: Text("Loaded ${state.services.length} services from DB!"),
-            );
-          } else if (state is ServiceListError) {
-            return Center(child: Text("Error: ${state.message}"));
-          }
-          return const Center(child: Text("Waiting..."));
-        },
-      ),
     );
   }
 }
