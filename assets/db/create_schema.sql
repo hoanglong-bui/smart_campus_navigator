@@ -1,15 +1,17 @@
--- 1. Kích hoạt hỗ trợ Foreign Key (Quan trọng)
+-- 1. Kích hoạt hỗ trợ Foreign Key
 PRAGMA foreign_keys = ON;
 
--- 2. Bảng Cụm khu vực (Clusters) - 
+--SPLIT
+
+-- 2. Bảng Cụm khu vực (Clusters)
 CREATE TABLE clusters (
     cluster_id TEXT PRIMARY KEY NOT NULL,
     name_en TEXT NOT NULL,
-    name_hi TEXT, -- Tên tiếng Hindi
-    name_vi TEXT, -- Tên tiếng Việt
+    name_hi TEXT,
+    name_vi TEXT,
     center_lat REAL,
     center_lng REAL,
-    radius_km REAL -- Bán kính bao phủ (ví dụ: 2.5 km)
+    radius_km REAL
 );
 
 --SPLIT
@@ -24,7 +26,7 @@ CREATE TABLE categories (
 
 --SPLIT
 
--- 4. Bảng Meta (Quản lý phiên bản)
+-- 4. Bảng Meta
 CREATE TABLE meta (
     key TEXT PRIMARY KEY NOT NULL,
     value TEXT NOT NULL
@@ -32,7 +34,7 @@ CREATE TABLE meta (
 
 --SPLIT
 
--- 5. Bảng Dịch vụ Chính (Services - Thông tin cố định)
+-- 5. Bảng Dịch vụ Chính
 CREATE TABLE services (
     service_id INTEGER PRIMARY KEY,
     cluster_id TEXT,
@@ -43,10 +45,10 @@ CREATE TABLE services (
     phone TEXT,
     email TEXT,
     website TEXT,
-    hours_json TEXT, -- Lưu JSON giờ làm việc để xử lý logic
+    hours_json TEXT,
     verified INTEGER DEFAULT 0,
     active INTEGER DEFAULT 1,
-    last_reviewed_by TEXT, -- Người kiểm duyệt/cập nhật cuối cùng
+    last_reviewed_by TEXT,
     updated_at INTEGER,
     FOREIGN KEY (cluster_id) REFERENCES clusters (cluster_id),
     FOREIGN KEY (category, sub_category) REFERENCES categories (category, sub_category)
@@ -54,22 +56,22 @@ CREATE TABLE services (
 
 --SPLIT
 
--- 6. Bảng Dịch vụ Đa ngôn ngữ (Translations)
+-- 6. Bảng Dịch vụ Đa ngôn ngữ
 CREATE TABLE service_translations (
     translation_id INTEGER PRIMARY KEY AUTOINCREMENT,
     service_id INTEGER NOT NULL,
-    language_code TEXT NOT NULL, -- 'en', 'hi', 'vi'
+    language_code TEXT NOT NULL,
     name TEXT NOT NULL,
     description TEXT,
     address TEXT,
-    hours_text TEXT, -- Giờ làm việc dạng văn bản hiển thị
+    hours_text TEXT,
     FOREIGN KEY (service_id) REFERENCES services (service_id) ON DELETE CASCADE,
     UNIQUE (service_id, language_code)
 );
 
 --SPLIT
 
--- 7. Bảng Ảo Tìm kiếm Nhanh (FTS5)
+-- 7. Bảng Ảo Tìm kiếm (FTS5)
 CREATE VIRTUAL TABLE service_translations_fts USING fts5(
     name,
     description,
@@ -105,16 +107,16 @@ END;
 
 --SPLIT
 
--- 9. Bảng Danh sách Quy trình (Guides) - ĐÃ CẬP NHẬT
+-- 9. Bảng Danh sách Quy trình (Guides)
 CREATE TABLE guides (
     guide_id TEXT PRIMARY KEY NOT NULL,
     title_en TEXT NOT NULL,
     title_hi TEXT,
     title_vi TEXT,
-    description_en TEXT, -- MỚI: Để giải thích rõ đối tượng áp dụng
+    description_en TEXT,
     description_hi TEXT,
     description_vi TEXT,
-    target_user TEXT, -- 'International', 'Local'
+    target_user TEXT,
     icon_name TEXT
 );
 
@@ -124,14 +126,14 @@ CREATE TABLE guides (
 CREATE TABLE guide_steps (
     step_id INTEGER PRIMARY KEY AUTOINCREMENT,
     guide_id TEXT NOT NULL,
-    step_order INTEGER NOT NULL, -- Thứ tự bước: 1, 2, 3...
+    step_order INTEGER NOT NULL,
     title_en TEXT NOT NULL,
     title_hi TEXT,
     title_vi TEXT,
     description_en TEXT,
     description_hi TEXT,
     description_vi TEXT,
-    linked_service_id INTEGER, -- QUAN TRỌNG: Liên kết tới bảng Services
+    linked_service_id INTEGER,
     
     FOREIGN KEY (guide_id) REFERENCES guides (guide_id) ON DELETE CASCADE,
     FOREIGN KEY (linked_service_id) REFERENCES services (service_id)

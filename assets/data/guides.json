@@ -12,8 +12,8 @@
         "step_order": 1,
         "title_en": "Report to ICCR",
         "title_vi": "Báo cáo với ICCR",
-        "desc_en": "Submit arrival report documents.",
-        "desc_vi": "Nộp báo cáo khi đến nơi.",
+        "description_en": "Submit arrival report documents.",
+        "description_vi": "Nộp báo cáo khi đến nơi.",
         "linked_service_id": 205 
       },
       {
@@ -49,8 +49,8 @@
         "step_order": 1,
         "title_en": "Register at FSR",
         "title_vi": "Đăng ký tại FSR",
-        "desc_en": "This is your first mandatory step.",
-        "desc_vi": "Đây là bước bắt buộc đầu tiên của bạn.",
+        "description_en": "This is your first mandatory step.",
+        "description_vi": "Đây là bước bắt buộc đầu tiên của bạn.",
         "linked_service_id": 105
       },
       {
