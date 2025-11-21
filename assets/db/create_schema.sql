@@ -12,6 +12,8 @@ CREATE TABLE clusters (
     radius_km REAL -- Bán kính bao phủ (ví dụ: 2.5 km)
 );
 
+--SPLIT
+
 -- 3. Bảng Danh mục (Categories)
 CREATE TABLE categories (
     category TEXT NOT NULL,
@@ -20,11 +22,15 @@ CREATE TABLE categories (
     PRIMARY KEY (category, sub_category)
 );
 
+--SPLIT
+
 -- 4. Bảng Meta (Quản lý phiên bản)
 CREATE TABLE meta (
     key TEXT PRIMARY KEY NOT NULL,
     value TEXT NOT NULL
 );
+
+--SPLIT
 
 -- 5. Bảng Dịch vụ Chính (Services - Thông tin cố định)
 CREATE TABLE services (
@@ -46,6 +52,8 @@ CREATE TABLE services (
     FOREIGN KEY (category, sub_category) REFERENCES categories (category, sub_category)
 );
 
+--SPLIT
+
 -- 6. Bảng Dịch vụ Đa ngôn ngữ (Translations)
 CREATE TABLE service_translations (
     translation_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -59,6 +67,8 @@ CREATE TABLE service_translations (
     UNIQUE (service_id, language_code)
 );
 
+--SPLIT
+
 -- 7. Bảng Ảo Tìm kiếm Nhanh (FTS5)
 CREATE VIRTUAL TABLE service_translations_fts USING fts5(
     name,
@@ -68,12 +78,16 @@ CREATE VIRTUAL TABLE service_translations_fts USING fts5(
     content_rowid='translation_id'
 );
 
+--SPLIT
+
 -- 8. Triggers (Tự động đồng bộ FTS5)
 CREATE TRIGGER trg_service_translations_insert AFTER INSERT ON service_translations
 BEGIN
     INSERT INTO service_translations_fts (rowid, name, description, address)
     VALUES (new.translation_id, new.name, new.description, new.address);
 END;
+
+--SPLIT
 
 CREATE TRIGGER trg_service_translations_update AFTER UPDATE ON service_translations
 BEGIN
@@ -82,21 +96,29 @@ BEGIN
     WHERE rowid = old.translation_id;
 END;
 
+--SPLIT
+
 CREATE TRIGGER trg_service_translations_delete AFTER DELETE ON service_translations
 BEGIN
     DELETE FROM service_translations_fts WHERE rowid = old.translation_id;
 END;
 
+--SPLIT
 
--- 9. Bảng Danh sách Quy trình (Guides)
+-- 9. Bảng Danh sách Quy trình (Guides) - ĐÃ CẬP NHẬT
 CREATE TABLE guides (
-    guide_id TEXT PRIMARY KEY NOT NULL, -- Ví dụ: 'intl_onboarding'
+    guide_id TEXT PRIMARY KEY NOT NULL,
     title_en TEXT NOT NULL,
     title_hi TEXT,
     title_vi TEXT,
-    target_user TEXT, -- 'International', 'Local', 'All'
+    description_en TEXT, -- MỚI: Để giải thích rõ đối tượng áp dụng
+    description_hi TEXT,
+    description_vi TEXT,
+    target_user TEXT, -- 'International', 'Local'
     icon_name TEXT
 );
+
+--SPLIT
 
 -- 10. Bảng Các bước thực hiện (Guide Steps)
 CREATE TABLE guide_steps (

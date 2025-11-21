@@ -1,33 +1,69 @@
 [
   {
-    "guide_id": "intl_new_student",
-    "title_en": "International Student Onboarding",
-    "title_vi": "Quy trình Nhập học SV Quốc tế",
+    "guide_id": "intl_scholarship",
+    "title_en": "ICCR Scholarship Students",
+    "title_vi": "Sinh viên Học bổng ICCR",
+    "description_en": "Process for students with ICCR scholarships.",
+    "description_vi": "Quy trình dành cho sinh viên có học bổng chính phủ.",
     "target_user": "International",
+    "icon_name": "school",
     "steps": [
       {
         "step_order": 1,
-        "title_en": "ICCR Scholarship Confirmation",
-        "desc_en": "Submit your arrival report to ICCR.",
-  "linked_service_id": 205
+        "title_en": "Report to ICCR",
+        "title_vi": "Báo cáo với ICCR",
+        "desc_en": "Submit arrival report documents.",
+        "desc_vi": "Nộp báo cáo khi đến nơi.",
+        "linked_service_id": 205 
       },
       {
         "step_order": 2,
-        "title_en": "FSR Registration",
-        "desc_en": "Get your admission letter from FSR office.",
-        "linked_service_id": 105  
+        "title_en": "Register at FSR",
+        "title_vi": "Đăng ký tại FSR",
+        "linked_service_id": 105
       },
       {
         "step_order": 3,
         "title_en": "Open Bank Account",
-        "desc_en": "Required for scholarship & payments.",
-        "linked_service_id": 301  
+        "title_vi": "Mở tài khoản ngân hàng",
+        "linked_service_id": 301
       },
       {
         "step_order": 4,
         "title_en": "FRRO Registration",
-        "desc_en": "Apply for Residence Permit (RC/RP) within 14 days.",
-        "linked_service_id": 402  
+        "title_vi": "Đăng ký cư trú (FRRO)",
+        "linked_service_id": 402
+      }
+    ]
+  },
+  {
+    "guide_id": "intl_self_financed",
+    "title_en": "Self-Financed Students",
+    "title_vi": "Sinh viên Tự túc",
+    "description_en": "Process for non-scholarship international students.",
+    "description_vi": "Quy trình dành cho sinh viên diện tự túc kinh phí.",
+    "target_user": "International",
+    "icon_name": "person",
+    "steps": [
+      {
+        "step_order": 1,
+        "title_en": "Register at FSR",
+        "title_vi": "Đăng ký tại FSR",
+        "desc_en": "This is your first mandatory step.",
+        "desc_vi": "Đây là bước bắt buộc đầu tiên của bạn.",
+        "linked_service_id": 105
+      },
+      {
+        "step_order": 2,
+        "title_en": "Open Bank Account",
+        "title_vi": "Mở tài khoản ngân hàng",
+        "linked_service_id": 301
+      },
+      {
+        "step_order": 3,
+        "title_en": "FRRO Registration",
+        "title_vi": "Đăng ký cư trú (FRRO)",
+        "linked_service_id": 402
       }
     ]
   }
