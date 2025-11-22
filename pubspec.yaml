@@ -34,6 +34,9 @@ dependencies:
   # Mở liên kết (Gọi điện, mở web)
   url_launcher: ^6.1.14
 
+  # RxDart để hỗ trợ lập trình phản ứng, dùng .debounceTime
+  rxdart: ^0.27.7
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

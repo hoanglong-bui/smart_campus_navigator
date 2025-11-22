@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:smart_campus_navigator/presentation/screens/guide_timeline_screen.dart';
+import 'package:smart_campus_navigator/presentation/screens/search_screen.dart';
+import 'package:smart_campus_navigator/presentation/screens/service_detail_screen.dart';
 
 import '../../logic/blocs/language_cubit.dart';
 import '../../logic/blocs/service_list_bloc.dart';
@@ -90,8 +93,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                 return ServiceCard(
                                   service: service,
                                   onTap: () {
-                                    // TODO: Navigate to Detail Screen
-                                    print("Tapped on ${service.serviceId}");
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            ServiceDetailScreen(
+                                                service: service),
+                                      ),
+                                    );
                                   },
                                 );
                               },
@@ -123,25 +132,34 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           // Thanh tìm kiếm giả
           Expanded(
-            child: Container(
-              height: 50,
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(25),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black.withOpacity(0.05),
-                        blurRadius: 10,
-                        offset: const Offset(0, 4))
-                  ]),
-              child: Row(
-                children: [
-                  const SizedBox(width: 16),
-                  const Icon(Icons.search, color: Colors.grey),
-                  const SizedBox(width: 8),
-                  Text("Search services, places...",
-                      style: TextStyle(color: Colors.grey[400])),
-                ],
+            child: GestureDetector(
+              onTap: () {
+                // Chuyển sang màn hình Search
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SearchScreen()),
+                );
+              },
+              child: Container(
+                height: 50,
+                decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(25),
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.05),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4))
+                    ]),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 16),
+                    const Icon(Icons.search, color: Colors.grey),
+                    const SizedBox(width: 8),
+                    Text("Search services, places...",
+                        style: TextStyle(color: Colors.grey[400])),
+                  ],
+                ),
               ),
             ),
           ),
@@ -189,11 +207,23 @@ class _GuidesSection extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             children: [
-              _buildGuideCard(context, "ICCR Scholar", "4 Steps", Icons.school,
-                  Colors.purple.shade50),
+              _buildGuideCard(
+                  context,
+                  "ICCR Scholar",
+                  "4 Steps",
+                  Icons.school,
+                  Colors.purple.shade50,
+                  "intl_scholarship" // ID khớp với guides.json
+                  ),
               const SizedBox(width: 12),
-              _buildGuideCard(context, "Self-Financed", "3 Steps", Icons.person,
-                  Colors.blue.shade50),
+              _buildGuideCard(
+                  context,
+                  "Self-Financed",
+                  "3 Steps",
+                  Icons.person,
+                  Colors.blue.shade50,
+                  "intl_self_financed" // ID khớp với guides.json
+                  ),
             ],
           ),
         ),
@@ -203,25 +233,36 @@ class _GuidesSection extends StatelessWidget {
   }
 
   Widget _buildGuideCard(BuildContext context, String title, String subtitle,
-      IconData icon, Color color) {
-    return Container(
-      width: 150,
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Icon(icon, size: 32, color: Colors.black87),
-          const SizedBox(height: 12),
-          Text(title,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-          Text(subtitle,
-              style: TextStyle(color: Colors.grey[700], fontSize: 12)),
-        ],
+      IconData icon, Color color, String guideId) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            // Truyền ID tương ứng trong DB (intl_scholarship hoặc intl_self_financed)
+            builder: (context) => GuideTimelineScreen(guideId: guideId),
+          ),
+        );
+      },
+      child: Container(
+        width: 150,
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Icon(icon, size: 32, color: Colors.black87),
+            const SizedBox(height: 12),
+            Text(title,
+                style:
+                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+            Text(subtitle,
+                style: TextStyle(color: Colors.grey[700], fontSize: 12)),
+          ],
+        ),
       ),
     );
   }
